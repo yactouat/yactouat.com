@@ -4,6 +4,10 @@
     "url": "https://github.com/yactouat/yactouat.com/issues"
   },
   "dependencies": {
+    "@google-cloud/error-reporting": "^3.0.5",
+    "@google-cloud/logging": "^11.2.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
     "express": "^4.21.1",
     "fs-extra": "^11.2.0"
   },
