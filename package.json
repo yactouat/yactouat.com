@@ -1,0 +1,19 @@
+{
+  "name": "yactouat.com",
+  "version": "1.0.0",
+  "description": "yactouat's website and blog",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yactouat/yactouat.com.git"
+  },
+  "author": "yactouat",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yactouat/yactouat.com/issues"
+  },
+  "homepage": "https://github.com/yactouat/yactouat.com#readme"
+}
