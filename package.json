@@ -1,19 +1,37 @@
 {
-  "name": "yactouat.com",
-  "version": "1.0.0",
-  "description": "yactouat's website and blog",
-  "main": "dist/index.js",
-  "scripts": {
-    "test": "jest"
+  "author": "yactouat",
+  "bugs": {
+    "url": "https://github.com/yactouat/yactouat.com/issues"
   },
+  "dependencies": {
+    "express": "^4.21.1",
+    "fs-extra": "^11.2.0"
+  },
+  "description": "yactouat's website and blog",
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "@types/fs-extra": "^11.0.4",
+    "@types/jest": "^29.5.14",
+    "@types/node": "^22.9.0",
+    "jest": "^29.7.0",
+    "nodemon": "^3.1.7",
+    "ts-jest": "^29.2.5",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.3"
+  },
+  "homepage": "https://github.com/yactouat/yactouat.com#readme",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "name": "yactouat.com",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/yactouat/yactouat.com.git"
   },
-  "author": "yactouat",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/yactouat/yactouat.com/issues"
+  "scripts": {
+    "build": "tsc && ts-node scripts/cleanup-dist.ts",
+    "dev": "PORT=6001 NODE_ENV=development nodemon --exec ts-node src/index.ts",
+    "test": "jest"
   },
-  "homepage": "https://github.com/yactouat/yactouat.com#readme"
+  "version": "1.0.0"
 }
