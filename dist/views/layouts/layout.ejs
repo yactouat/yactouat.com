@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %> - yactouat.com</title>
+
+    <!-- TODO: make these dynamic -->
+    <meta name="author" content="Yacine Touati">
+    <meta name="description" content="your go-to problem solver for any tasks that involve systems engineering, software engineering, deployment, and for training your team">
+    <meta name="keywords" content="AI, tech, software">
+    <meta name="profession" content="Software Developer / IT Consultant">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Signika:wght@300..700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/css/style.css">
+    <% if (locals.style) { %>
+        <link rel="stylesheet" href="/css/<%= style %>.css">
+    <% } %>
+
+    
+</head>
+<body>
+    <header class="header">
+        <div class="logo"><a href="/"><img src="/images/logo.svg" alt="yactouat.com logo"></a></div>
+    </header>
+
+    <section class="banner">
+        <h1 class="headings-h1">Yacine Touati</h1>
+        <p>Software developer / IT Consultant</p>
+    </section>
+
+    <%- nav %>
+
+    <main class="container">
+        <%- main %>
+    </main>
+
+    <script>
+        // add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

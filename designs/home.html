@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - yactouat.com</title>
+
+    <!-- TODO: make these dynamic -->
+    <meta name="author" content="Yacine Touati">
+    <meta name="description" content="your go-to problem solver for any tasks that involve systems engineering, software engineering, deployment, and for training your team">
+    <meta name="keywords" content="AI, tech, software">
+    <meta name="profession" content="Software Developer / IT Consultant">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Signika:wght@300..700&display=swap" rel="stylesheet">
+
+    <style>
+        .body-black {
+            font-family: "Lato", sans-serif;
+            font-weight: 900;
+            font-style: normal;
+        }
+
+        .body-black-italic {
+            font-family: "Lato", sans-serif;
+            font-weight: 900;
+            font-style: italic;
+        }
+
+        .body-bold {
+            font-family: "Lato", sans-serif;
+            font-weight: 700;
+            font-style: normal;
+        }
+
+        .body-bold-italic {
+            font-family: "Lato", sans-serif;
+            font-weight: 700;
+            font-style: italic;
+        }
+
+        .body-light {
+            font-family: "Lato", sans-serif;
+            font-weight: 300;
+            font-style: normal;
+        }
+
+        .body-light-italic {
+            font-family: "Lato", sans-serif;
+            font-weight: 300;
+            font-style: italic;
+        }
+
+        .body-regular {
+            font-family: "Lato", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        .body-regular-italic {
+            font-family: "Lato", sans-serif;
+            font-weight: 400;
+            font-style: italic;
+        }
+
+        .body-thin {
+            font-family: "Lato", sans-serif;
+            font-weight: 100;
+            font-style: normal;
+        }
+
+        .body-thin-italic {
+            font-family: "Lato", sans-serif;
+            font-weight: 100;
+            font-style: italic;
+        }
+
+        .headings-h1 {
+            font-family: "Signika", sans-serif;
+            /* automatically adjusts font details for optimal readability at different sizes */
+            font-optical-sizing: auto;
+            font-weight: 700;
+            font-style: normal;
+        }
+
+        .headings-h2 {
+            font-family: "Signika", sans-serif;
+            font-weight: 600;
+            font-style: normal;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        /* scrollbar rules */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--secondary-color);
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-color);
+        }
+        * {
+            scrollbar-width: thin;
+            scrollbar-color: var(--secondary-color) transparent;
+        }
+
+        :root {
+            --accent-color: #0066cc;
+            --light-bg: #f5f9fc;
+            --primary-color: #ff9900;
+            --secondary-color: #4d4d4d;
+            --text-color: #2b2b2b;
+        }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100vw;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+        }
+
+        .header {
+            background: var(--primary-color);
+            padding: 1rem;
+            color: white;
+        }
+
+        .logo img {
+            width: 176px;
+            height: auto;
+        }
+
+        .banner {
+            background: var(--secondary-color);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .profile-section {
+            align-items: flex-start;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            text-align: left;
+        }
+
+        .profile-section p {
+            color: var(--text-color);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .profile-pic {
+            border-radius: 50%;
+            height: 150px;
+            object-fit: cover;
+            width: 150px;
+        }
+
+        .social-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            justify-content: center;
+            margin: 1rem 0;
+        }
+        .social-links a {
+            background: var(--light-bg);
+            border-radius: 4px;
+            color: var(--accent-color);
+            font-size: 0.9rem;
+            max-width: 120px;
+            overflow: hidden;
+            padding: 0.5rem 0.75rem;
+            text-decoration: none;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .services {
+            background: var(--light-bg);
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .services h2 {
+            margin-bottom: 2rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 6px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .service-card h3 {
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .service-card p {
+            font-size: 0.95rem;
+            color: var(--secondary-color);
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1rem;
+            justify-content: center;
+        }
+
+        .skill-tag {
+            background: var(--accent-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        .where-to-find-me {
+            margin: 0 0 2rem 0;
+            padding: 1rem 2rem;
+            text-align: center;
+        }
+
+        .where-to-find-me h2 {
+            margin-bottom: 2rem;
+        }
+
+        /* responsive (mobile first, so wider screens start here) */
+        @media (min-width: 768px) {
+            .profile-section {
+                align-items: flex-start;
+                flex-direction: row;
+                text-align: left;
+            }
+
+            .profile-pic {
+                width: 200px;
+                height: 200px;
+            }
+        }
+
+        .internal-nav {
+            background: var(--primary-color);
+            padding: 1rem;
+            color: white;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: background-color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Optional: Add active state for current section */
+        .nav-links a.active {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo"><a href="/"><img src="https://yactouat.com/images/logo.svg" alt="yactouat.com logo"></a></div>
+    </header>
+
+    <section class="banner">
+        <h1 class="headings-h1">Yacine Touati</h1>
+        <p>Software developer / IT Consultant</p>
+    </section>
+
+    <nav class="internal-nav">
+        <div class="nav-links">
+            <a href="#bio">Bio</a>
+            <a href="#links">Links</a>
+            <a href="#services">Services</a>
+            <a href="#skills">Skills</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section id="bio" class="profile-section">
+            <img src="https://yactouat.com/images/profile_pic.webp" alt="Yacine Touati" class="profile-pic">
+            <div>
+        
+                <!-- short bio: TODO make it dynamic -->
+                <h2 class="headings-h2">who I am</h2>
+                <p>👋 Hello, I'm Yacine.</p>
+                <p>I'm a software developer and an optimistic futurist. I am passionate about tech, AI, software engineering,
+                    and
+                    web development.</p>
+                <p>Consider me as your go-to problem solver for any tasks that involve systems engineering, software
+                    engineering,
+                    deployment, and for training your team as well. I am a passionate lifelong learner, and I'm eager to tackle
+                    your
+                    next challenges, regardless of the technologies you are using: it's not about the tools, it's about which
+                    ones
+                    you chose and how you use them to build and repair your systems ;) I've made the commitment to always stay
+                    on
+                    top of things, tech-wise, so count me in as your powerful and versatile ally to face the complexity of your
+                    challenges.</p>
+                <p>After ten years of service in the French Ground Army and various missions abroad, I've came back to the
+                    civilian
+                    life and realized how much technology has the potential to empower and improve everyone's life, from the
+                    little
+                    things that make it more pleasant to the big issues that we need to resolve as a society: this is why, in
+                    2018,
+                    I've decided to become a software developer.</p>
+                <h2 class="headings-h2">what I do</h2>
+                <p>As a builder, I can help you create and maintain:</p>
+                <ul>
+                    <li>full-stack distributed web applications using various software programming languages (Python, Node.js,
+                        PHP,
+                        .NET), environments (on-premise, serverless, Kubernetes), and databases (PostgreSQL, MongoDB,)</li>
+                    <li>optimizations to manage the complexity of your application stacks by leveraging caches and queues
+                        (Redis),
+                        messaging systems (Pub/Sub), telemetry (for instance, with Google Cloud monitoring offerings), and more!
+                    </li>
+                    <li>CI/CD pipelines on the GCP and serverless solutions using Kubernetes or plain containers, for instance
+                        with
+                        Google Cloud Run</li>
+                    <li>powerful generative AI workflows to meet your organizational goals (RAG systems, agentic data
+                        collection,
+                        public facing agentic natural language interfaces, etc.) using tools like LangChain, LangGraph, or
+                        LlamaIndex</li>
+                    <li>ML computer vision or tabular data models that can be deployed on various stacks, even legacy ones
+                        (using
+                        ONNX)</li>
+                </ul>
+                <p>As a trainer, I can teach you and your team all of the above so that your organization can navigate technical
+                    challenges with ease!</p>
+                <p>I had the opportunity of working for a wide array of organizations, of various scales, using a wide array of
+                    technologies. Some of my work included:</p>
+                <ul>
+                    <li>building chatbots to help employees of a construction cie take their vacation from within a messaging
+                        application on their smartphone, greatly reducing the workload for the HR department</li>
+                    <li>deploying high-traffic websites that are visited daily by one-fourth of the English-speaking world (<a
+                            href="https://www.cinemablend.com/">cinemablend.com</a>, <a
+                            href="https://www.whattowatch.com/">whattowatch.com</a>, <a
+                            href="https://moneyweek.com/">moneyweek</a>,
+                        and many other <a href="https://futureplc.com/">Future PLC</a> websites, where I worked as DevOps
+                        Software
+                        Engineer)</li>
+                    <li>deploying a computer vision model to meet an OCR SLA for a cie that needed to process hand-written forms
+                        at
+                        scale; the solution I've implemented using PyTorch saw an increase of 30% hand-written forms correctly
+                        parsed</li>
+                    <li>building and deploying a web API and its frontend for <a href="https://qperfect.io/">a startup that
+                            provides
+                            quantum computing as a service</a> so that their team could focus on their core product</li>
+                    <li>training adults to write and deploy software for well-known e-learning and in situ training platforms,
+                        such
+                        as <a href="https://www.udacity.com/">Udacity</a>, <a
+                            href="https://openclassrooms.com/en/">OpenClassrooms</a>, and <a
+                            href="https://www.wildcodeschool.com/fr-fr/">Wild Code School</a>: one of my greatest prides is that
+                        several of my students did find a job and are now accomplished software developers!</li>
+                    <li>… and many more stuff!</li>
+                </ul>
+                <h2 class="headings-h2">how I work</h2>
+                <ul>
+                    <li>
+                        <p><strong>Collaboration and Knowledge Sharing:</strong> In addition to delivering solutions — It's very
+                            important to me that your team is provided with the tools to understand, maintain, and expand these
+                            solutions. My training services ensure that your organization is equipped to handle future
+                            challenges
+                            independently, fostering long-term success, without knowledge silos.</p>
+                    </li>
+                    <li>
+                        <p><strong>Commitment to Excellence:</strong> I am committed to excellence, ensuring that every solution
+                            I
+                            deliver is of the highest quality and tailored to exceed client expectations. I take a personalized
+                            approach to every project, ensuring that I fully understand your unique challenges and goals. This
+                            allows me to deliver solutions that are perfectly tailored to your specific needs.</p>
+                    </li>
+                    <li>
+                        <p><strong>Discipline</strong>: My military experience has shaped my approach to problem-solving,
+                            instilling
+                            discipline, tactical thinking, and an unwavering commitment to achieving the mission —qualities that
+                            I
+                            now bring to every project in the tech world.</p>
+                    </li>
+                    <li>
+                        <p><strong>Integrity and Reliability:</strong> Integrity and reliability guide my work, ensuring that I
+                            am a
+                            trustworthy partner who delivers on promises and stands by my clients through every challenge.</p>
+                    </li>
+                    <li>
+                        <p><strong>Lifelong Learner Growth Mindset:</strong> I am committed to lifelong learning, continuously
+                            expanding my knowledge to stay at the forefront of technological advancements, ensuring that my
+                            clients
+                            always benefit from the latest and most effective solutions.</p>
+                    </li>
+                    <li>
+                        <p><strong>Optimism and Futurism:</strong> I believe in the power of technology to empower individuals
+                            and
+                            organizations, making life better and solving complex challenges. As an optimistic futurist, I bring
+                            a
+                            forward-thinking perspective to every project, ensuring that the solutions I deliver not only meet
+                            today's needs but also position your business for future success.</p>
+                    </li>
+                    <li>
+                        <p><strong>Versatility:</strong> I bring versatility across a wide array of programming languages,
+                            environments, and tools. This allows me to provide comprehensive, integrated solutions tailored to
+                            the
+                            specific needs of your project. From enabling millions of users to seamlessly access high-traffic
+                            websites to deploying AI models that transformed business processes, I always make sure that my work
+                            consistently delivers measurable impact.</p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        
+        <section id="links" class="where-to-find-me">
+            <h2 class="headings-h2">Where to find me</h2>
+            <div class="social-links">
+                <a href="https://comeup.com/fr/@yacinetouati" target="_blank">comeup.com</a>
+                <a href="https://github.com/yactouat?preview=true" target="_blank">GitHub</a>
+                <a href="https://www.meetup.com/fr-FR/members/313767573/" target="_blank">Meetup</a>
+                <a href="https://stackoverflow.com/users/9499355/yactouat" target="_blank">Stack Overflow</a>
+            </div>
+        </section>
+        
+        <!-- services: TODO make them dynamic -->
+        <section id="services" class="services">
+            <h2 class="headings-h2">Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Full-Stack Development</h3>
+                    <p>Building end-to-end web applications with modern technologies and best practices.</p>
+                </div>
+                <div class="service-card">
+                    <h3>API Development</h3>
+                    <p>Creating robust and scalable APIs to power your applications.</p>
+                </div>
+                <div class="service-card">
+                    <h3>DevOps & Infrastructure</h3>
+                    <p>Setting up and maintaining CI/CD pipelines and cloud infrastructure.</p>
+                </div>
+                <div class="service-card">
+                    <h3>AI & Machine Learning</h3>
+                    <p>Implementing agentic applications, computer vision, and predictive modeling solutions.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Technical Training</h3>
+                    <p>Empowering teams through comprehensive technical training and mentorship.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Technical Writing</h3>
+                    <p>Delivering clear documentation, articles, and technical content.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Web Optimization</h3>
+                    <p>Improving performance, SEO, and maintaining existing codebases.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Data Collection</h3>
+                    <p>Building efficient scrapers and data collection systems.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- skills: TODO make them dynamic -->
+        <section id="skills">
+            <h2 class="headings-h2" style="text-align: center">Skills</h2>
+            <div class="skills">
+                <span class="skill-tag">.NET</span>
+                <span class="skill-tag">Agentic Applications</span>
+                <span class="skill-tag">Docker</span>
+                <span class="skill-tag">GCP</span>
+                <span class="skill-tag">LangChain/LangGraph</span>
+                <span class="skill-tag">Machine Learning</span>
+                <span class="skill-tag">Node.js</span>
+                <span class="skill-tag">Organic SEO</span>
+                <span class="skill-tag">PHP</span>
+                <span class="skill-tag">PostgreSQL</span>
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">React</span>
+                <span class="skill-tag">Redis</span>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

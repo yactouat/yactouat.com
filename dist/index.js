@@ -1,32 +1,61 @@
-import dotenv from 'dotenv';
-dotenv.config();
-
-import cors from 'cors';
-import express, { NextFunction, Request, Response, Router } from 'express';
-import path from 'path';
-
-import ApiResponseInfra from './infra/ApiResponse';
-import LoggerInfra from './infra/Logger';
-import { SERVICE_NAME } from './constants/strings';
-
-(async () => {
-    const loggerInfra = new LoggerInfra();
-
-    const app = express();
+"use strict";
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const dotenv_1 = __importDefault(require("dotenv"));
+dotenv_1.default.config();
+const cors_1 = __importDefault(require("cors"));
+const express_1 = __importStar(require("express"));
+const path_1 = __importDefault(require("path"));
+const ApiResponse_1 = __importDefault(require("./infra/ApiResponse"));
+const Logger_1 = __importDefault(require("./infra/Logger"));
+const strings_1 = require("./constants/strings");
+(() => __awaiter(void 0, void 0, void 0, function* () {
+    const loggerInfra = new Logger_1.default();
+    const app = (0, express_1.default)();
     const PORT = process.env.PORT || 6002;
-
     // set up EJS
     app.set('view engine', 'ejs');
-    app.set('views', path.join(__dirname, 'views'));
-    
+    app.set('views', path_1.default.join(__dirname, 'views'));
     // serve static files
-    app.use(express.static(path.join(__dirname, 'public')));
-
-    app.use(cors());
-    app.use(express.json());
-
+    app.use(express_1.default.static(path_1.default.join(__dirname, 'public')));
+    app.use((0, cors_1.default)());
+    app.use(express_1.default.json());
     // web routes (before API routes)
-    app.get('/', (req: Request, res: Response) => {
+    app.get('/', (req, res) => {
         res.render('pages/home', {
             main: `<section class="profile-section" id="bio">
 <img src="https://yactouat.com/images/profile_pic.webp" alt="Yacine Touati" class="profile-pic">
@@ -239,37 +268,31 @@ import { SERVICE_NAME } from './constants/strings';
             title: 'Home'
         });
     });
-
-    const apiRouter = Router();
-
-    apiRouter.get('/api', (req: Request, res: Response) => {
-        res.json(new ApiResponseInfra("yactouat.com API is up"));
+    const apiRouter = (0, express_1.Router)();
+    apiRouter.get('/api', (req, res) => {
+        res.json(new ApiResponse_1.default("yactouat.com API is up"));
     });
-
     // 500 error handler for API routes
-    apiRouter.use('*', async (err: Error, req: Request, res: Response, next: NextFunction) => {
-        await loggerInfra.logMessage({
-            context: SERVICE_NAME,
+    apiRouter.use('*', (err, req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+        yield loggerInfra.logMessage({
+            context: strings_1.SERVICE_NAME,
             message: err.message,
             serialized_data: '',
             time: new Date().toISOString()
         }, "ERROR");
-        res.status(500).json(new ApiResponseInfra('Something went wrong, please try again later'));
-    });
-
+        res.status(500).json(new ApiResponse_1.default('Something went wrong, please try again later'));
+    }));
     app.use('/api', apiRouter);
-
     // 404 error handler
-    app.get('*', (req: Request, res: Response) => {
-        res.status(404).json(new ApiResponseInfra('resource not found'));
+    app.get('*', (req, res) => {
+        res.status(404).json(new ApiResponse_1.default('resource not found'));
     });
-
     app.listen(PORT, () => {
         loggerInfra.logMessage({
-            context: SERVICE_NAME,
-            message: `${SERVICE_NAME} is running on http://localhost:${PORT}`,
+            context: strings_1.SERVICE_NAME,
+            message: `${strings_1.SERVICE_NAME} is running on http://localhost:${PORT}`,
             serialized_data: '',
             time: new Date().toISOString()
         }, "INFO");
     });
-})();
+}))();
