@@ -19,7 +19,10 @@ const storage = multer_1.default.diskStorage({
 });
 const uploadMiddleware = (0, multer_1.default)({
     fileFilter: (req, file, cb) => {
-        const allowedMimeTypes = ['image/x-icon'];
+        const allowedMimeTypes = [
+            'image/x-icon',
+            'text/html'
+        ];
         if (allowedMimeTypes.includes(file.mimetype)) {
             cb(null, true);
         }
@@ -34,6 +37,7 @@ const uploadMiddleware = (0, multer_1.default)({
     },
     storage: storage
 }).fields([
-    { name: 'favicon', maxCount: 1 }
+    { name: 'favicon', maxCount: 1 },
+    { name: 'shortbio', maxCount: 1 }
 ]);
 exports.default = uploadMiddleware;
