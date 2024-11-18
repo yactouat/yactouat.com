@@ -10,6 +10,7 @@ import LoggerInfra from './infra/Logger';
 import { SERVICE_NAME } from './constants/strings';
 import updateFavicon from './controllers/faviconController';
 import uploadMiddleware from './middlewares/uploadMiddleware';
+import apiTokenMiddleware from './middlewares/apiTokenMiddleware';
 
 (async () => {
     const loggerInfra = new LoggerInfra();
@@ -248,7 +249,7 @@ import uploadMiddleware from './middlewares/uploadMiddleware';
         res.json(new ApiResponseInfra("yactouat.com API is up"));
     });
 
-    apiRouter.post('/favicon', uploadMiddleware, async (req: Request, res: Response, next: NextFunction) => {
+    apiRouter.post('/favicon', apiTokenMiddleware, uploadMiddleware, async (req: Request, res: Response, next: NextFunction) => {
         await updateFavicon(req, res);
     });
 

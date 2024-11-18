@@ -45,6 +45,7 @@ const Logger_1 = __importDefault(require("./infra/Logger"));
 const strings_1 = require("./constants/strings");
 const faviconController_1 = __importDefault(require("./controllers/faviconController"));
 const uploadMiddleware_1 = __importDefault(require("./middlewares/uploadMiddleware"));
+const apiTokenMiddleware_1 = __importDefault(require("./middlewares/apiTokenMiddleware"));
 (() => __awaiter(void 0, void 0, void 0, function* () {
     const loggerInfra = new Logger_1.default();
     const app = (0, express_1.default)();
@@ -274,7 +275,7 @@ const uploadMiddleware_1 = __importDefault(require("./middlewares/uploadMiddlewa
     apiRouter.get('/', (req, res) => {
         res.json(new ApiResponse_1.default("yactouat.com API is up"));
     });
-    apiRouter.post('/favicon', uploadMiddleware_1.default, (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+    apiRouter.post('/favicon', apiTokenMiddleware_1.default, uploadMiddleware_1.default, (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
         yield (0, faviconController_1.default)(req, res);
     }));
     // 500 error handler for API routes
