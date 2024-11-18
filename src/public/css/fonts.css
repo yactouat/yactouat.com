@@ -1,73 +1,15 @@
-.body-black {
-    font-family: "Lato", sans-serif;
-    font-weight: 900;
-    font-style: normal;
-}
-
-.body-black-italic {
-    font-family: "Lato", sans-serif;
-    font-weight: 900;
-    font-style: italic;
-}
-
-.body-bold {
-    font-family: "Lato", sans-serif;
-    font-weight: 700;
-    font-style: normal;
-}
-
-.body-bold-italic {
-    font-family: "Lato", sans-serif;
-    font-weight: 700;
-    font-style: italic;
-}
-
-.body-light {
-    font-family: "Lato", sans-serif;
-    font-weight: 300;
-    font-style: normal;
-}
-
-.body-light-italic {
-    font-family: "Lato", sans-serif;
-    font-weight: 300;
-    font-style: italic;
-}
-
-.body-regular {
-    font-family: "Lato", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-}
-
-.body-regular-italic {
-    font-family: "Lato", sans-serif;
-    font-weight: 400;
-    font-style: italic;
-}
-
-.body-thin {
-    font-family: "Lato", sans-serif;
-    font-weight: 100;
-    font-style: normal;
-}
-
-.body-thin-italic {
-    font-family: "Lato", sans-serif;
-    font-weight: 100;
-    font-style: italic;
-}
-
 .headings-h1 {
     font-family: "Signika", sans-serif;
     /* automatically adjusts font details for optimal readability at different sizes */
     font-optical-sizing: auto;
-    font-weight: 700;
+    font-size: 60px;
     font-style: normal;
+    font-weight: 700;
 }
 
 .headings-h2 {
     font-family: "Signika", sans-serif;
-    font-weight: 600;
+    font-size: 40px;
     font-style: normal;
+    font-weight: 600;
 }

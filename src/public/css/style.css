@@ -1,10 +1,5 @@
 @import url("fonts.css");
 
-
-* {
-    box-sizing: border-box;
-}
-
 /* scrollbar rules */
 ::-webkit-scrollbar {
     width: 6px;
@@ -19,7 +14,10 @@
 ::-webkit-scrollbar-thumb:hover {
     background: var(--accent-color);
 }
+
 * {
+    box-sizing: border-box;
+    font-size: 20px;
     scrollbar-width: thin;
     scrollbar-color: var(--secondary-color) transparent;
 }

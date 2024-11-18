@@ -8,6 +8,8 @@ import path from 'path';
 import ApiResponseInfra from './infra/ApiResponse';
 import LoggerInfra from './infra/Logger';
 import { SERVICE_NAME } from './constants/strings';
+import updateFavicon from './controllers/faviconController';
+import uploadMiddleware from './middlewares/uploadMiddleware';
 
 (async () => {
     const loggerInfra = new LoggerInfra();
@@ -18,7 +20,7 @@ import { SERVICE_NAME } from './constants/strings';
     // set up EJS
     app.set('view engine', 'ejs');
     app.set('views', path.join(__dirname, 'views'));
-    
+
     // serve static files
     app.use(express.static(path.join(__dirname, 'public')));
 
@@ -242,8 +244,12 @@ import { SERVICE_NAME } from './constants/strings';
 
     const apiRouter = Router();
 
-    apiRouter.get('/api', (req: Request, res: Response) => {
+    apiRouter.get('/', (req: Request, res: Response) => {
         res.json(new ApiResponseInfra("yactouat.com API is up"));
+    });
+
+    apiRouter.post('/favicon', uploadMiddleware, async (req: Request, res: Response, next: NextFunction) => {
+        await updateFavicon(req, res);
     });
 
     // 500 error handler for API routes
